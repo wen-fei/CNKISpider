@@ -63,17 +63,22 @@ class RandomUserAgentMiddleware(object):
         self.ua = UserAgent()
         self.ua_type = crawler.settings.get("RANDOM_UA_TYPE", "random")
 
+
+    def spider_opened(self, spider):
+        spider.logger.info('Spider opened: %s' % spider.name)
+
+
     @classmethod
     def from_crawler(cls, crawler):
         return cls(crawler)
 
 
     def process_request(self, request, spider):
-        def get_ua():
-            return getattr(self.ua, self.ua_type)
+        # def get_ua():
+            # return getattr(self.ua, self.ua_type)
 
-        random_agent = get_ua()
-        request.headers.setdefault("User-Agent", get_ua())
+        # random_agent = get_ua()
+        # request.headers.setdefault("User-Agent", get_ua())
         # 设置代理
         # request.meta['proxy'] = ""
-        request.headers.setdefault("Cookie", "Ecp_ClientId=1171009095901465355; Ecp_IpLoginFail=171009112.81.2.110; RsPerPage=50; cnkiUserKey=dd6eca65-a22c-330b-d486-22684afbe7b2; ASP.NET_SessionId=5atsoskm5rxqkirzhct0vjdb; SID_kns=123122; SID_kinfo=125102; SID_klogin=125141; SID_kredis=125142; SID_krsnew=125132")
+        request.headers.setdefault("Cookie", "Ecp_ClientId=2170914074501149831; RsPerPage=20; cnkiUserKey=42463fbc-f813-8023-21c7-d4cd29c7bff8; ASP.NET_SessionId=u3vqombtchoej45crc4daaue; SID_kns=123119; SID_kinfo=125104; SID_klogin=125144; SID_krsnew=125131; SID_kredis=125144; Ecp_IpLoginFail=171009112.81.2.110")

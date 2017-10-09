@@ -1,0 +1,1098 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>概览页</title>
+    <meta content="no-cache" http-equiv="pragma" />
+    <link rel="stylesheet" type="text/css" href="http://piccache.cnki.net/kdn/kns/css/gb_min/BriefComp.min.css?v=" />
+    <script type="text/javascript" src="http://piccache.cnki.net/kdn/kns/script/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="http://piccache.cnki.net/kdn/kns/script/min/gb.BriefPage.min.js?v=D59787997F3B8FCE" ></script>
+    
+</head>
+<body leftmargin="0" onload="BriefOnload();" topmargin="0" onkeydown="grabEvent(event);">
+    <script type="text/javascript" src="http://piccache.cnki.net/kdn/kns/script/WideScreen.js"></script>
+    <form name="ctl00" method="post" action="brief.aspx?curpage=3&amp;RecordsPerPage=50&amp;QueryID=5&amp;ID=&amp;turnpage=1&amp;tpagemode=L&amp;dbPrefix=SCPD&amp;Fields=&amp;DisplayMode=listmode&amp;PageName=ASP.brief_result_aspx" id="ctl00">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwMjEzMjM0NDQPFgIeE1ZhbGlkYXRlUmVxdWVzdE1vZGUCAWRkFUnlzL67PJ732+B92mn+7Gnt2TiRI1Jktu/5SQeLy1w=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAIdIRdFWpKA4BYUdQL6KgtZbgvJz/EQj5rQumcYDL2xlhbi/alS8mbfX8EEY1efJIm0syhzU+O3mZ5ahqVI454K" />
+</div>
+        <input type="hidden" id="SqlValue" name="SqlValue" value="0239FD1E2BC9964B0E59786251C6342E01BA3CA78F87BCFAA5054EBC78D802E6370E8FCED02B6543F0BF734B0ECD4E9FF9FB910A9F466B54F21078FD882EE9E7945A7BA9E66A1201A7319D163B63A1A14560E9453BF0AD5BE5B1E6B4FABA84149A2938174386A332CFB9F515FBB745CE639C8414DF29D6FA9EE26CB36F4331FF931668C6D8689B67EF37331713A495C5" />
+        <input type="hidden" id="txtValue" value="" />
+        <input type="hidden" id="LoginState" value="-1" />
+        <input type="hidden" id="userid" value="" />
+        <input type="hidden" id="resultcount" name="resultcount" value="" />
+        <input type="hidden" id="crrsUrl" name="crrsUrl" value="http://kns.cnki.net/CRRS/" />
+        <input type="hidden" id="krsUrl" name="krsUrl" value="http://kns.cnki.net/KRS" />
+        <input id="crrsPath" type="hidden" name="crrsPath" value='http://kns.cnki.net/CRRS/' />
+        <input id="bathPath" type="hidden" name="bathPath" value='/kns' />
+        <input id="dbCode" type="hidden" name="dbCode" value='SCPD' />
+        <input id="deliveryPath" type="hidden" name="deliveryPath" value='' />
+        <input id="mycnkiUrl" type="hidden" name="mycnkiUrl" value='http://kns.cnki.net/KMycnki/Mycnki/index/' />
+        <input id="kredisServerPath" type="hidden" name="kredisServerPath" value='http://kns.cnki.net' />
+        <input id="heatjson" type="hidden" name="heatjson" value='' />
+             <input id="fengmianPath" type="hidden" name="heatjson" value='http://c61.cnki.net' />
+         <input id="crfdpicPath" type="hidden" name="heatjson" value='http://gongjushu.cnki.net/CRFDPIC/' />
+        <script type="text/javascript">
+            function ShowGroup(p1, p2, p3) {
+                return parent.ShowGroup(p1, p2, p3);
+            }
+            
+    
+            $(document).ready(function () {
+              
+                qkInfoCall();
+                setAuShow();
+                GetHeat();
+                window.parent.HideWaitDiv();
+                SetFrameHeight();
+            });
+
+        </script>
+        <script language="JavaScript">
+<!--
+	function OnChangePagenum(pagenum)
+	{
+		return false;
+	}
+//-->
+</script>
+
+<script language="JavaScript">
+<!--
+function updateCounter() {
+}
+function numMarked() {
+company =	"cnki";
+cookie = new String(getCookie("FileNameS"));
+if ((cookie.substring(0,cookie.indexOf(":")) != company) || cookie.length <= 5) {
+return 0;
+}
+a=cookie.split(",");
+			return a.length;
+}
+function getErrorMsg(count) {
+count = count || '50';
+var msg = '';
+if (!window.localStorage || !window.sessionStorage) {
+    msg = '如要选择更多，请您升级浏览器到最新版本。';
+} else {
+    msg = '不能超过'+count+'个,若要重新选择,请按清除按钮,再进行选取操作';
+}
+return msg;
+}
+function ClickOpen(url) {
+if (numMarked() == 0){
+alert('请先选取文献');
+return;}
+windowOpener(url);
+}
+function checkAll(form,stype) {
+var limit = 500;
+if(!window.localStorage || !window.sessionStorage){ limit = 50;};
+e	= document.forms[0].elements;
+for (i=0;	i<e.length;	i++) {
+if (e[i].type	== "checkbox"	 &&	e[i].name == "FileNameS")	{
+if (numMarked()>= limit) {
+this.checked=false;
+alert(getErrorMsg(limit));
+return false;
+}	else {
+if (e[i].checked==false) {
+if(document.cookie.length + e[i].value.length > 4096 ){
+    alert(getErrorMsg(limit));
+    return false;}
+addToCookie(e[i].value);
+e[i].checked=true;
+}
+}
+}
+}
+updateCounter();
+return true;
+}
+function clearAllMarks(form) {
+e	= document.forms[0].elements;
+for (i=0;	i<e.length;	i++) {
+if (e[i].type	== "checkbox"	&&	e[i].name == "FileNameS" ) {
+removeFromCookie(e[i].value);
+e[i].checked=false;
+}
+}
+updateCounter();
+}
+		function getCookie(Name,stype) {
+if (window.localStorage || window.sessionStorage) {   if(stype=='2') return window.sessionStorage.getItem(Name);    return window.localStorage.getItem(Name);}var search = Name	+ "=";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search);
+if (offset !=	-1)	{
+offset +=	search.length;
+end =	document.cookie.indexOf(";", offset);
+if (end == -1)
+end =	document.cookie.length;
+return unescape(document.cookie.substring(offset,	end));
+}
+}
+}
+function setCookie(name, value,stype) {
+if (window.localStorage || window.sessionStorage){
+  if(stype == '2'){  window.sessionStorage.setItem(name, value );}
+  else{  localStorage.setItem(name, value );}
+    return true;
+}
+var cookieValue = name + "=" + escape(value)+";"+"path=/";
+if(cookieValue.length  > 4096 ){
+    return false;}
+document.cookie =	cookieValue ;
+return true;}
+function getTableNameFileNames(s){
+ if (!s || s.length <= 0) {  return ''; }
+ var tempArr = s.split('!');
+ if (tempArr.length == 4) {
+return tempArr[0] + '!' + tempArr[1];}
+return '';}
+function handlerRegexSpcileChar(input) {
+  if (input) {
+     return input.replace(/[\(|\)|\+|\.|\*]/g, function (m) { return '\\' + m;});
+  }
+  return input;
+}
+function addToCookie(v) {
+company =	"cnki";
+cookie= new String(getCookie("FileNameS"));
+if ((cookie.length > 0) && ((cookie.substring(0,cookie.indexOf(':')) == company))){
+ var tableFileNames = getTableNameFileNames(v);
+ tableFileNames = handlerRegexSpcileChar(tableFileNames);
+ var re = new RegExp(tableFileNames + '[^,]*', 'ig');
+if (re.test(cookie)) return;
+if (cookie.length	- 1	== cookie.indexOf(':'))	{
+setCookie("FileNameS", cookie+v);
+}	else {
+				   setCookie("FileNameS",	cookie+","+v);
+			   }
+}	else {
+setCookie("FileNameS", company + ":" + v);
+}
+}
+function removeFromCookie(v) {
+var company =	"cnki";
+var cookie = new String(getCookie("FileNameS"));
+if (cookie.substring(0,cookie.indexOf(':')) == company) {
+cookie = cookie.substring(cookie.indexOf(':')+1,cookie.length);
+ var deleteV = function (input, value) {
+re = new RegExp("^"+handlerRegexSpcileChar(value)+"$");
+input=input.replace(re,	"");
+re = new RegExp("^"+handlerRegexSpcileChar(value)+",");
+input=input.replace(re,	"");
+re = new RegExp(","+handlerRegexSpcileChar(value)+"$");
+input=input.replace(re,	"");
+re = new RegExp(","+handlerRegexSpcileChar(value)+",");
+input=input.replace(re,	",");
+ return input;
+}
+var tableFileNames = getTableNameFileNames(v);
+ tableFileNames = handlerRegexSpcileChar(tableFileNames);
+if (tableFileNames && tableFileNames.length <= 0){ return; }
+var re = new RegExp(tableFileNames + '[^,]*', 'ig');
+var tempMaths = cookie.match(re);
+if (tempMaths && tempMaths.length > 0) {
+    for (var i = 0; i < tempMaths.length; i++){
+        cookie = deleteV(cookie, tempMaths[i]);
+    }
+}
+}	else { cookie =	""; }
+if (cookie!="")	{ setCookie("FileNameS", company + ":" + cookie);}
+else { setCookie("FileNameS", company +	":");}
+}
+function checkMark(c)	{
+var limit = 500;
+if(!window.localStorage || !window.sessionStorage){ limit = 50;};
+if (c.checked	== true) {
+if (numMarked()>=limit) {
+alert(getErrorMsg(limit));
+c.checked=false;
+}	else {
+if(document.cookie.length + c.value.length > 4096 ){
+    c.checked=false;
+    alert(getErrorMsg(limit));
+    return false;}
+addToCookie(c.value);
+}
+}else	{
+removeFromCookie(c.value);
+}
+updateCounter();
+}
+//-->
+</script>
+<script language=javascript >
+var newWindow	= null
+var newWindow2 = null
+function windowOpener(loadpos)
+{
+newWindow	= window.open(loadpos,"_blank","toolbar=yes,resizable=yes,scrollbars=yes,dependent,location=yes,status=yes,menubar=yes,width=550,height=450");
+newWindow.focus();
+}
+function windowOpener2(loadpos)
+{
+newWindow2 = window.open(loadpos,"","toolbar=yes,resizable=yes,scrollbars=yes,dependent,location=yes,status=yes,menubar=yes,width=550,height=450");
+}
+</script>
+<table cellspacing='0' cellpadding='0'  border='0' bgcolor=''  bgcolor='#F4F5F6' width='100%'><tr><td><table id='J_ORDER' border=0 cellspacing=0 cellpadding=0 	width=100%	align=left  class='divsearch1'><tr><td><table border=0 cellspacing=4	cellpadding=2 class='taxis'><tr><td align='left'><span class="groupsorttitle">排序:</span><span class='Btn5'><a class='cur'  href="/kns/brief/brief.aspx?&RecordsPerPage=50&ID=&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx&sorttype=(FFD%2c%27RANK%27)+desc&queryid=5" title='只在800万条记录以内有效'>主题排序<img src='../images/gb/icon-d.gif' /></a></span><span class='Btn5'><a    href="/kns/brief/brief.aspx?&RecordsPerPage=50&ID=&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx&sorttype=(%e5%85%ac%e5%bc%80%e6%97%a5%2c+%27DATE%27)+desc&queryid=5">公开日</a></span><span class='Btn5'><a    href="/kns/brief/brief.aspx?&RecordsPerPage=50&ID=&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx&sorttype=(%e7%94%b3%e8%af%b7%e6%97%a5%2c+%27DATE%27)+desc&queryid=5">申请日</a></span></td><td align="right" style='width:30%;'>
+<div  id='id_grid_display_num'  class='class_grid_display_num'>
+每页显示：<a href="/kns/brief/brief.aspx?&ID=&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx&queryid=5&skuakuid=5&turnpage=1&recordsperpage=10">10</a> <a href="/kns/brief/brief.aspx?&ID=&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx&queryid=5&skuakuid=5&turnpage=1&recordsperpage=20">20</a> <a href="/kns/brief/brief.aspx?&ID=&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx&queryid=5&skuakuid=5&turnpage=1&recordsperpage=50"><font class='numNow'>50</font></a></div></td></tr></table></td></tr><tr><td><table class='pageBar_top' border=0 cellspacing=0	cellpadding=0 	width=100%	align=left ><tr><td align=left ><div class='SavePoint'><span class='cout'>已选文献：<em title='点击查看所选文献' id='selectCount' name='selectCount' onclick='if( zeroSelectTip()){saveAs();} return false;'>0</em><a href='javascript:void(0);' onclick='ClearAll(false);' class='zero'>清除</a></span><a href='javascript:void(0);' onclick='if( zeroSelectTip()){exportArtical(0);} return false;' title='生成、导出所选文献不同的引文格式'> 导出/参考文献</a><div id='analysisBox' class='imiSel'><span class='imiSelCho'>计量可视化分析</span><ul class='imiSelDp' style='display:none;'><li><a href='javascript:void(0);' onclick='anisysartical(1); return false;' title='对已选文献进行分析'>已选文献分析</a></li><li><a href='javascript:void(0);' onclick='anisysresult();return false;' title='对全部检索结果集进行分析'>全部检索结果分析</a></li></ul></div></div></td><td align=right><div class='pageBar_min'><div class='pagerTitleCell'><span id="lbPagerTitle" name="lbPagerTitle" class="pagerTitle"></span>&nbsp;找到&nbsp;1,934,679&nbsp;条结果&nbsp;</div><span class='countPageMark'>3/120</span><span class='topTurnSpan'><a id="Page_prev" href="?curpage=2&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">上一页</a><a id="Page_next" href="?curpage=4&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">下一页</a></span></div></td></tr></table>
+
+
+</td></tr></table></td></tr><tr><td><table class="GridTableContent"   align=left bgColor=#969799  Border=0  CellPadding=0  CellSpacing=0  Width=100%>
+<tr class="GTContentTitle">
+<td   Width='48px' align=center STYLE=" ">
+<input type=checkbox name='selectCheckbox' id='selectCheckbox' onclick="if(this.checked){this.checked = checkAll('this.form');}else{clearAllMarks(this.form);}" ></td>
+<td    align=center STYLE=" ">
+专利名称</td>
+<td   Width='120px' align=center STYLE=" ">
+发明人</td>
+<td   Width='12%' align=center STYLE=" ">
+申请人</td>
+<td   Width='76px' align=center STYLE=" ">
+申请日</td>
+<td   Width='76px' align=center STYLE=" ">
+公开日</td>
+<td   Width='28px' align=center STYLE=" ">
+下载</td>
+<td   Width='38px' align=center STYLE=" ">
+热度</td>
+</tr>
+
+<TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106661466A!101!5"  onclick="checkMark(this)"  >101</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=101&dbcode=scpd&dbname=SCPD2017&filename=CN106661466A' target='_blank'>烃材料的升级</a>
+      </td>
+      <td>N·G·泽帕雷奎斯;A·德克勒克;夏玉寒;A·A·奥梅</td>
+      <td>尼克森能源无限责任公司</td>
+      <td align="center">2014-12-23</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106661466A"><img title="下载_32页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106661466A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106661440A!102!5"  onclick="checkMark(this)"  >102</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=102&dbcode=scpd&dbname=SCPD2017&filename=CN106661440A' target='_blank'>用于地下油井应用的包含可固化树脂和亲有机改性粘土的组合物</a>
+      </td>
+      <td>H·J·肯尼迪;P·J·琼斯;L·D·阿尔布莱顿</td>
+      <td>哈利伯顿能源服务公司</td>
+      <td align="center">2014-09-25</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106661440A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106661440A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106661937A!103!5"  onclick="checkMark(this)"  >103</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=103&dbcode=scpd&dbname=SCPD2017&filename=CN106661937A' target='_blank'>向含有含氧阴离子的水流中添加铝试剂</a>
+      </td>
+      <td>尼古拉斯·S·埃冈;罗纳德·V·达维斯</td>
+      <td>艺康美国股份有限公司</td>
+      <td align="center">2014-09-05</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106661937A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106661937A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687005A!104!5"  onclick="checkMark(this)"  >104</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=104&dbcode=scpd&dbname=SCPD2017&filename=CN106687005A' target='_blank'>拉链的拉头罩</a>
+      </td>
+      <td>犬饲孝幸</td>
+      <td>YKK株式会社</td>
+      <td align="center">2014-09-01</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687005A"><img title="下载_31页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687005A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687018A!105!5"  onclick="checkMark(this)"  >105</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=105&dbcode=scpd&dbname=SCPD2017&filename=CN106687018A' target='_blank'>吸嘴和硬面吸净设备</a>
+      </td>
+      <td>贝恩德·格鲁贝尔;于尔根·祖格尔;梅勒妮·克内德勒;桑德拉·巴特尔;丹尼尔·克罗姆;曼纽尔·福尔;索柳斯·马丁克纳斯;克里斯蒂安·施特文;迈克尔·沙尔马赫;京特·埃贝尔</td>
+      <td>阿尔弗雷德·凯驰两合公司</td>
+      <td align="center">2014-08-29</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687018A"><img title="下载_28页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687018A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106659227A!106!5"  onclick="checkMark(this)"  >106</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=106&dbcode=scpd&dbname=SCPD2017&filename=CN106659227A' target='_blank'>包含优化的氨基酸谱的配方物</a>
+      </td>
+      <td>E·M·范德比克;M·阿布拉哈姆瑟-伯克维尔德;J·B·范古德弗</td>
+      <td>N·V·努特里奇亚</td>
+      <td align="center">2014-05-19</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106659227A"><img title="下载_35页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106659227A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106626813A!107!5"  onclick="checkMark(this)"  >107</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=107&dbcode=scpd&dbname=SCPD2017&filename=CN106626813A' target='_blank'>打印装置及控制方法</a>
+      </td>
+      <td>袴田惠世</td>
+      <td>佳能株式会社</td>
+      <td align="center">2014-07-04</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106626813A"><img title="下载_35页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106626813A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106660320A!108!5"  onclick="checkMark(this)"  >108</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=108&dbcode=scpd&dbname=SCPD2017&filename=CN106660320A' target='_blank'>涂装金属板及其制造方法、以及外装建材</a>
+      </td>
+      <td>原丈人;上田耕一郎;坂户健二;高桥和彦</td>
+      <td>日新制钢株式会社</td>
+      <td align="center">2014-12-16</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106660320A"><img title="下载_41页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106660320A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106662335A!109!5"  onclick="checkMark(this)"  >109</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=109&dbcode=scpd&dbname=SCPD2017&filename=CN106662335A' target='_blank'>具有外部滴油盘模块的垂直烤架</a>
+      </td>
+      <td>邦妮·李·布齐可;罗伯特·詹姆斯·贝尔;罗纳德·尤金·亨特</td>
+      <td>邦妮·李·布齐可;罗伯特·詹姆斯·贝尔</td>
+      <td align="center">2014-10-09</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106662335A"><img title="下载_34页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106662335A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106660780A!110!5"  onclick="checkMark(this)"  >110</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=110&dbcode=scpd&dbname=SCPD2017&filename=CN106660780A' target='_blank'>蒙皮材料安装装置和蒙皮材料向座椅主体的安装方法</a>
+      </td>
+      <td>福泽哲也;斋贺真介;伊与田義智</td>
+      <td>YKK株式会社</td>
+      <td align="center">2014-06-25</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106660780A"><img title="下载_34页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106660780A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687226A!111!5"  onclick="checkMark(this)"  >111</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=111&dbcode=scpd&dbname=SCPD2017&filename=CN106687226A' target='_blank'>超声波振子和超声波处置器具</a>
+      </td>
+      <td>坂井长英</td>
+      <td>奥林巴斯株式会社</td>
+      <td align="center">2014-09-22</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687226A"><img title="下载_30页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687226A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106662373A!112!5"  onclick="checkMark(this)"  >112</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=112&dbcode=scpd&dbname=SCPD2017&filename=CN106662373A' target='_blank'>具有分离的入口和出口流的磁制冷系统</a>
+      </td>
+      <td>乔恩·杰伊·奥林戈;安德烈·迈克尔·伯德尔;杰里米·乔纳森·谢尔;约翰·保罗·莱昂纳德;卡尔·布鲁诺·齐姆</td>
+      <td>美国宇航公司</td>
+      <td align="center">2014-12-12</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106662373A"><img title="下载_40页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106662373A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106662219A!113!5"  onclick="checkMark(this)"  >113</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=113&dbcode=scpd&dbname=SCPD2017&filename=CN106662219A' target='_blank'>轨道张紧器组件</a>
+      </td>
+      <td>英戈·沃尔特;米夏埃尔·B·菲舍尔;埃尔维斯·贝契罗维奇</td>
+      <td>利滕斯汽车合伙公司</td>
+      <td align="center">2014-06-26</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106662219A"><img title="下载_40页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106662219A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106688021A!114!5"  onclick="checkMark(this)"  >114</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=114&dbcode=scpd&dbname=SCPD2017&filename=CN106688021A' target='_blank'>硬币处理装置</a>
+      </td>
+      <td>近藤真史;片桐良二;片桐直己;八卷昌明</td>
+      <td>日本功勒克斯股份有限公司</td>
+      <td align="center">2014-12-12</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106688021A"><img title="下载_29页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106688021A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106662100A!115!5"  onclick="checkMark(this)"  >115</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=115&dbcode=scpd&dbname=SCPD2017&filename=CN106662100A' target='_blank'>泵流体端组件安装系统</a>
+      </td>
+      <td>J·D·莫雷勒</td>
+      <td>FMC技术股份有限公司</td>
+      <td align="center">2014-07-31</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106662100A"><img title="下载_38页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106662100A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106662468A!116!5"  onclick="checkMark(this)"  >116</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=116&dbcode=scpd&dbname=SCPD2017&filename=CN106662468A' target='_blank'>旋转检测装置</a>
+      </td>
+      <td>小山昌二;春日敦史;吉富史朗</td>
+      <td>广濑电机株式会社</td>
+      <td align="center">2014-08-08</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106662468A"><img title="下载_41页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106662468A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663376A!117!5"  onclick="checkMark(this)"  >117</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=117&dbcode=scpd&dbname=SCPD2017&filename=CN106663376A' target='_blank'>自身位置计算装置以及自身位置计算方法</a>
+      </td>
+      <td>山口一郎;西内秀和;平泉宣久;松本淳</td>
+      <td>日产自动车株式会社</td>
+      <td align="center">2014-08-04</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663376A"><img title="下载_42页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663376A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687328A!118!5"  onclick="checkMark(this)"  >118</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=118&dbcode=scpd&dbname=SCPD2017&filename=CN106687328A' target='_blank'>车辆的控制装置以及控制方法</a>
+      </td>
+      <td>熊田光德;丰田良平</td>
+      <td>日产自动车株式会社</td>
+      <td align="center">2014-09-09</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687328A"><img title="下载_37页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687328A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106660607A!119!5"  onclick="checkMark(this)"  >119</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=119&dbcode=scpd&dbname=SCPD2017&filename=CN106660607A' target='_blank'>电动助力自行车</a>
+      </td>
+      <td>川上将史</td>
+      <td>松下知识产权经营株式会社</td>
+      <td align="center">2014-07-01</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106660607A"><img title="下载_38页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106660607A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106660437A!120!5"  onclick="checkMark(this)"  >120</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=120&dbcode=scpd&dbname=SCPD2017&filename=CN106660437A' target='_blank'>门防撞梁</a>
+      </td>
+      <td>泽靖典;中泽嘉明</td>
+      <td>新日铁住金株式会社</td>
+      <td align="center">2014-06-30</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106660437A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106660437A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106660493A!121!5"  onclick="checkMark(this)"  >121</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=121&dbcode=scpd&dbname=SCPD2017&filename=CN106660493A' target='_blank'>防碰撞便携式分隔装置</a>
+      </td>
+      <td>蒂莫西·保罗·施罗德;詹姆斯·C·韦斯特</td>
+      <td>费诺-华盛顿公司</td>
+      <td align="center">2014-08-08</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106660493A"><img title="下载_42页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106660493A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687366A!122!5"  onclick="checkMark(this)"  >122</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=122&dbcode=scpd&dbname=SCPD2017&filename=CN106687366A' target='_blank'>海上构造物组的系留系统及海上构造物组的系留方法</a>
+      </td>
+      <td>中村拓树</td>
+      <td>三井海洋开发株式会社</td>
+      <td align="center">2014-09-25</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687366A"><img title="下载_29页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687366A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106661855A!123!5"  onclick="checkMark(this)"  >123</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=123&dbcode=scpd&dbname=SCPD2017&filename=CN106661855A' target='_blank'>塔的地基系统和塔的地基系统的安装方法</a>
+      </td>
+      <td>罗斯·萨鲁斯泰诺·瑟娜·加西亚-坎德</td>
+      <td>艾斯泰科股份公司</td>
+      <td align="center">2014-10-29</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106661855A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106661855A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106661948A!124!5"  onclick="checkMark(this)"  >124</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=124&dbcode=scpd&dbname=SCPD2017&filename=CN106661948A' target='_blank'>在相邻过渡导管主体之间的交汇部的汇合流连接部插入件系统</a>
+      </td>
+      <td>D.J.维贝;A.卡尔森;K.C.斯托克</td>
+      <td>西门子能源公司</td>
+      <td align="center">2014-06-26</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106661948A"><img title="下载_40页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106661948A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106661949A!125!5"  onclick="checkMark(this)"  >125</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=125&dbcode=scpd&dbname=SCPD2017&filename=CN106661949A' target='_blank'>在相邻过渡导管主体之间的交汇部的汇合流连接部插入件系统</a>
+      </td>
+      <td>R.T.布鲁克斯</td>
+      <td>西门子能源公司</td>
+      <td align="center">2014-06-26</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106661949A"><img title="下载_37页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106661949A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106662068A!126!5"  onclick="checkMark(this)"  >126</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=126&dbcode=scpd&dbname=SCPD2017&filename=CN106662068A' target='_blank'>组装风轮机的系统和方法</a>
+      </td>
+      <td>E·桑泽·巴斯库;H·R·萨维尔·科斯塔尔</td>
+      <td>纳布拉风力技术公司</td>
+      <td align="center">2014-04-01</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106662068A"><img title="下载_35页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106662068A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663829A!127!5"  onclick="checkMark(this)"  >127</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=127&dbcode=scpd&dbname=SCPD2017&filename=CN106663829A' target='_blank'>燃料电池系统以及燃料电池系统的控制方法</a>
+      </td>
+      <td>熊田光德;西村英高;武田大</td>
+      <td>日产自动车株式会社</td>
+      <td align="center">2014-08-08</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663829A"><img title="下载_38页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663829A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687905A!128!5"  onclick="checkMark(this)"  >128</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=128&dbcode=scpd&dbname=SCPD2017&filename=CN106687905A' target='_blank'>触感控制系统及触感控制方法</a>
+      </td>
+      <td>下谷光生;有田英一</td>
+      <td>三菱电机株式会社</td>
+      <td align="center">2014-09-09</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687905A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687905A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663906A!129!5"  onclick="checkMark(this)"  >129</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=129&dbcode=scpd&dbname=SCPD2017&filename=CN106663906A' target='_blank'>具有可更换电源插头单元的插头式供电器</a>
+      </td>
+      <td>蒋卫华</td>
+      <td>弗里沃电器有限责任公司</td>
+      <td align="center">2014-08-25</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663906A"><img title="下载_37页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663906A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687974A!130!5"  onclick="checkMark(this)"  >130</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=130&dbcode=scpd&dbname=SCPD2017&filename=CN106687974A' target='_blank'>攻击观察装置以及攻击观察方法</a>
+      </td>
+      <td>河内清人;樱井钟治</td>
+      <td>三菱电机株式会社</td>
+      <td align="center">2014-09-17</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687974A"><img title="下载_30页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687974A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106688310A!131!5"  onclick="checkMark(this)"  >131</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=131&dbcode=scpd&dbname=SCPD2017&filename=CN106688310A' target='_blank'>放电灯点灯装置、灯故障检测方法和投影仪</a>
+      </td>
+      <td>田岸孝一;田中弘记;河合泰治</td>
+      <td>NEC显示器解决方案株式会社</td>
+      <td align="center">2014-09-30</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106688310A"><img title="下载_31页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106688310A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106664043A!132!5"  onclick="checkMark(this)"  >132</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=132&dbcode=scpd&dbname=SCPD2017&filename=CN106664043A' target='_blank'>电力转换装置、电力转换方法以及电力转换系统</a>
+      </td>
+      <td>山崎正裕;荒尾祐介;田中良;望月义则</td>
+      <td>株式会社日立产机系统</td>
+      <td align="center">2014-10-01</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106664043A"><img title="下载_33页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106664043A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663758A!133!5"  onclick="checkMark(this)"  >133</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=133&dbcode=scpd&dbname=SCPD2017&filename=CN106663758A' target='_blank'>车载用电池组</a>
+      </td>
+      <td>菅原辰夫</td>
+      <td>日立汽车系统株式会社</td>
+      <td align="center">2014-08-22</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663758A"><img title="下载_32页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663758A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106659149A!134!5"  onclick="checkMark(this)"  >134</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=134&dbcode=scpd&dbname=SCPD2017&filename=CN106659149A' target='_blank'>用于器官、组织或细胞移植的组合物、试剂盒和移植方法</a>
+      </td>
+      <td>金商在</td>
+      <td>珍白斯凯尔有限公司;金商在</td>
+      <td align="center">2014-05-28</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106659149A"><img title="下载_32页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106659149A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106659533A!135!5"  onclick="checkMark(this)"  >135</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=135&dbcode=scpd&dbname=SCPD2017&filename=CN106659533A' target='_blank'>通用自限制电外科返回电极</a>
+      </td>
+      <td>M·D·恩林格尔;P·R·博格迈耶;D·W·格里普;R·米利斯;M·K·菲希尔</td>
+      <td>玛格戴恩医疗产品公司</td>
+      <td align="center">2014-12-26</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106659533A"><img title="下载_38页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106659533A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687130A!136!5"  onclick="checkMark(this)"  >136</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=136&dbcode=scpd&dbname=SCPD2017&filename=CN106687130A' target='_blank'>真杆菌属在预防和治疗结直肠癌相关疾病中的用途</a>
+      </td>
+      <td>冯强;张东亚;刘传;肖亮;唐龙清;王俊</td>
+      <td>深圳华大基因科技有限公司;深圳华大基因研究院</td>
+      <td align="center">2014-08-05</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687130A"><img title="下载_29页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687130A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106659879A!137!5"  onclick="checkMark(this)"  >137</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=137&dbcode=scpd&dbname=SCPD2017&filename=CN106659879A' target='_blank'>用于多种药物流体的施用的阀</a>
+      </td>
+      <td>米凯尔·特恩布卢姆</td>
+      <td>赛拓365公司</td>
+      <td align="center">2014-09-10</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106659879A"><img title="下载_39页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106659879A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106659891A!138!5"  onclick="checkMark(this)"  >138</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=138&dbcode=scpd&dbname=SCPD2017&filename=CN106659891A' target='_blank'>电刺激装置、训练装置及电刺激方法</a>
+      </td>
+      <td>秋场猛;横井浩史</td>
+      <td>电子系统股份有限公司;国立大学法人电气通信大学</td>
+      <td align="center">2014-07-23</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106659891A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106659891A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106659909A!139!5"  onclick="checkMark(this)"  >139</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=139&dbcode=scpd&dbname=SCPD2017&filename=CN106659909A' target='_blank'>用于靶向连接蛋白半通道的组合物和方法</a>
+      </td>
+      <td>姜欣;M·A·里克尔梅;S·顾</td>
+      <td>德克萨斯州大学系统董事会</td>
+      <td align="center">2014-08-21</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106659909A"><img title="下载_39页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106659909A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663258A!140!5"  onclick="checkMark(this)"  >140</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=140&dbcode=scpd&dbname=SCPD2017&filename=CN106663258A' target='_blank'>通过混合的基于统计和用户测量方法测量多屏幕互联网用户概况、交易行为和用户群体结构</a>
+      </td>
+      <td>汉努·韦尔卡萨罗;克里斯·莫泽莱夫斯基;埃里克·马尔米</td>
+      <td>威图数据研究公司</td>
+      <td align="center">2014-02-26</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663258A"><img title="下载_32页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663258A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106685881A!141!5"  onclick="checkMark(this)"  >141</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=141&dbcode=scpd&dbname=SCPD2017&filename=CN106685881A' target='_blank'>前导符号的生成方法及接收方法</a>
+      </td>
+      <td>张文军;邢观斌;黄戈</td>
+      <td>上海数字电视国家工程研究中心有限公司</td>
+      <td align="center">2014-12-10</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106685881A"><img title="下载_28页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106685881A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106685882A!142!5"  onclick="checkMark(this)"  >142</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=142&dbcode=scpd&dbname=SCPD2017&filename=CN106685882A' target='_blank'>频域OFDM符号的生成方法</a>
+      </td>
+      <td>张文军;邢观斌;黄戈</td>
+      <td>上海数字电视国家工程研究中心有限公司</td>
+      <td align="center">2014-12-10</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106685882A"><img title="下载_28页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106685882A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106664119A!143!5"  onclick="checkMark(this)"  >143</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=143&dbcode=scpd&dbname=SCPD2017&filename=CN106664119A' target='_blank'>在超宽带通信系统中测量入射角</a>
+      </td>
+      <td>加文·麦罗;迈克尔·麦克劳林;西亚恩·麦克罗伊</td>
+      <td>德卡维务有限责任公司</td>
+      <td align="center">2014-05-23</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106664119A"><img title="下载_32页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106664119A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106664124A!144!5"  onclick="checkMark(this)"  >144</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=144&dbcode=scpd&dbname=SCPD2017&filename=CN106664124A' target='_blank'>无线通信网络中的方法和节点</a>
+      </td>
+      <td>马蒂亚斯·古斯塔夫森;马茨·霍格贝里</td>
+      <td>华为技术有限公司</td>
+      <td align="center">2014-07-11</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106664124A"><img title="下载_32页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106664124A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663025A!145!5"  onclick="checkMark(this)"  >145</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=145&dbcode=scpd&dbname=SCPD2017&filename=CN106663025A' target='_blank'>用于混淆虚拟机上的应用程序的执行的方法、装置以及计算机可读介质</a>
+      </td>
+      <td>Y.李;W.契;S.刘;T.陈</td>
+      <td>耶德托公司</td>
+      <td align="center">2014-03-31</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663025A"><img title="下载_36页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663025A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106664146A!146!5"  onclick="checkMark(this)"  >146</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=146&dbcode=scpd&dbname=SCPD2017&filename=CN106664146A' target='_blank'>用于无线通信系统中的多接入的方法和装置</a>
+      </td>
+      <td>马吉德·纳斯里·孔姆吉;布兰尼斯拉夫·M·波波维奇</td>
+      <td>华为技术有限公司</td>
+      <td align="center">2014-06-24</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106664146A"><img title="下载_35页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106664146A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106664147A!147!5"  onclick="checkMark(this)"  >147</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=147&dbcode=scpd&dbname=SCPD2017&filename=CN106664147A' target='_blank'>用于在支持FDR传输的无线接入系统中接收信号的方法和装置</a>
+      </td>
+      <td>鲁广锡;金镇玟;崔国宪;郑载薰;金起台</td>
+      <td>LG电子株式会社</td>
+      <td align="center">2014-08-06</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106664147A"><img title="下载_34页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106664147A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106687874A!148!5"  onclick="checkMark(this)"  >148</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=148&dbcode=scpd&dbname=SCPD2017&filename=CN106687874A' target='_blank'>数控装置</a>
+      </td>
+      <td>渡边光雄;嵯峨崎正一;平田悠贵</td>
+      <td>三菱电机株式会社</td>
+      <td align="center">2014-09-09</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106687874A"><img title="下载_35页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106687874A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#ffffff>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106685626A!149!5"  onclick="checkMark(this)"  >149</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=149&dbcode=scpd&dbname=SCPD2017&filename=CN106685626A' target='_blank'>前导符号的接收方法</a>
+      </td>
+      <td>张文军;邢观斌;黄戈</td>
+      <td>上海数字电视国家工程研究中心有限公司</td>
+      <td align="center">2014-12-10</td>
+      <td align="center">2017-05-17</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106685626A"><img title="下载_29页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106685626A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR><TR  bgcolor=#f6f7fb>
+<td style="white-space:nowrap;"><input type=checkbox name=FileNameS  value="SCPD2017!CN106663595A!150!5"  onclick="checkMark(this)"  >150</td><td>
+        <a class='fz14' href='/kns/detail/detail.aspx?QueryID=5&CurRec=150&dbcode=scpd&dbname=SCPD2017&filename=CN106663595A' target='_blank'>半导体装置、半导体芯片及半导体芯片的特性信息管理方法</a>
+      </td>
+      <td>外园和也;山本晃央;王东</td>
+      <td>三菱电机株式会社</td>
+      <td align="center">2014-09-01</td>
+      <td align="center">2017-05-10</td>
+      <td align="center">
+      <a class="brief_downloadIcon" target="shoppingcart" href="../RedirectPage.aspx?domain=http%3a%2f%2fdbpub.cnki.net%2fgrid2008%2fdbpub%2fdownload.aspx%3fdbname%3dscpd%26filename%3dCN106663595A"><img title="下载_34页" src="../images/gb/download.gif" border="0"></img></a>
+      </td>
+      <!--<td align="right"><a class="kreader" target="online_open" href='/kns/ReadRedirectPage.aspx?domain=%2fKReader%2fRedriectPage.aspx%3ftablename%3dSCPD2017%26filename%3dCN106663595A%26dbCode%3dSCPD%26mark%3d0' title="阅读"  ></a></td>-->
+   
+         <td align="center">
+        <div class="hotspot"><span value="0" style="width:0%;" class="power">0</span></div>
+         </td></TR></table>
+
+
+</td></tr><tr><td><table class='pageBar_bottom' border=0 cellspacing=0	cellpadding=0 	width=100%	align=left ><tr><td align=left  colspan=8><div class='TitleLeftCell'><div class='pagerTitleCell'><span id="lbPagerTitle" name="lbPagerTitle" class="pagerTitle"></span>&nbsp;找到&nbsp;1,934,679&nbsp;条结果&nbsp;</div><a href="?curpage=1&RecordsPerPage=50&QueryID=5&ID=&turnpage=2&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">首页</a><a href="?curpage=2&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">上一页</a><a href="?curpage=1&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">1</a><a href="?curpage=2&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">2</a><font class='Mark'>3</font><a href="?curpage=4&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">4</a><a href="?curpage=5&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">5</a><a href="?curpage=6&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">6</a><a href="?curpage=7&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">7</a><a href="?curpage=8&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">8</a><a href="?curpage=9&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">9</a><a href="?curpage=4&RecordsPerPage=50&QueryID=5&ID=&turnpage=1&tpagemode=L&dbPrefix=SCPD&Fields=&DisplayMode=listmode&PageName=ASP.brief_result_aspx#J_ORDER&">下一页</a></div></div></td></tr></table>
+
+
+</td></tr></table>
+        <input name="tpagemode" type="hidden" id="tpagemode" value="L" />
+    </form>
+    <script type="text/javascript">
+    try{}catch(e){}
+        ChangeDownloadImg();
+        RevertUserSelect();
+        briefTableListJSEvent();
+        BindOnlick_ShowWait();
+        BindTurnPage_TitleTip();
+        parent.$("#zyzklist").hide();
+        //外文推荐
+        recWWJDAddToTable();
+        var analysisURL = "http://kns.cnki.net/KVisual/ArticleAnalysis/index";
+        modifySql();
+        function modifySql() {
+            var param = "";
+            if (param == null || param == "") {
+                var obj = parent.document.getElementById("sql");
+                if (obj) {
+                    obj.value = "0239FD1E2BC9964B0E59786251C6342E01BA3CA78F87BCFAA5054EBC78D802E6370E8FCED02B6543F0BF734B0ECD4E9FF9FB910A9F466B54F21078FD882EE9E7945A7BA9E66A1201A7319D163B63A1A14560E9453BF0AD5BE5B1E6B4FABA84149A2938174386A332CFB9F515FBB745CE639C8414DF29D6FA9EE26CB36F4331FF931668C6D8689B67EF37331713A495C5%";
+            }
+        }
+    }
+    //绑定分析
+    $("#analysisBox").hoverDelay({
+        hoverDuring: 200,
+        outDuring: 0,
+        hoverEvent: function () {
+            var $this = $(this);
+            //显示数字
+            var fileNameS = new FileNameS();
+            var pcnt = fileNameS.Count();
+            var rcnt = 643822;
+            var ptext = pcnt > -10 ? "<span>(" + pcnt + ")</span>" : "";//始终为真
+            var rtext = rcnt > -10 ? "<span>(" + rcnt + ")</span>" : "";
+            $this.find("a").eq(0).html("已选文献分析" + ptext);
+            //$this.find("a").eq(1).html("检索结果");
+            $this.find(".imiSelDp").show();
+        },
+        outEvent: function () {
+            $(this).find(".imiSelDp").hide();
+        }
+    });
+
+
+    //隐藏更多弹出层
+    window.document.onclick = parent.OnclickForHideMoredo;
+    </script>
+    <style type="text/css">
+        .flyingAdd
+        {
+            left: -100px;
+            top: 0px;
+            position: absolute;
+            width: 50px;
+            text-align: center;
+            height: 50px;
+            font-size: 50px;
+            color: #999;
+            z-index: 50000;
+        }
+    </style>
+    <div style="left: -1000px; top: -100px; opacity: 1; font-size: 50px;" class="flyingAdd">
+        <img src="../images/gb/checkboxbook.png" alt="" />
+    </div>
+    <script type="text/javascript">
+        LoadScript('http://kns.cnki.net/KRS/scripts/Recommend.js');
+    </script>
+
+</body>
+</html>

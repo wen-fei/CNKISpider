@@ -89,3 +89,12 @@ AUTOTHROTTLE_MAX_DELAY = 10
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+DEFAULT_REQUEST_HEADERS = {
+   "Host" : "kns.cnki.net",
+   "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/56.0",
+   "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+   "Referer" : "http://kns.cnki.net/kns/brief/…ageName=ASP.brief_result_aspx",
+   "Cookie" : "Ecp_ClientId=1 171009095901465355; Ecp_IpLoginFail=171009112.81.2.110; RsPerPage=50; cnkiUserKey=dd6eca65-a22c-330b-d486-22684afbe7b2; ASP.NET_SessionId=5atsoskm5rxqkirzhct0vjdb; SID_kns=123122; SID_kinfo=125102; SID_klogin=125141; SID_kredis=125142; SID_krsnew=125132",
+   "Connection" : "keep-alive",
+   "Upgrade-Insecure-Requests" : "1"
+}
