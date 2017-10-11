@@ -16,3 +16,7 @@ http://dbpub.cnki.net/grid2008/dbpub/Detail.aspx?DBName=SCPD2014&FileName=CN2039
 其中，CN是固定的，末尾的字母是专利标识代码，中国只有ASU种
 
 所有，避免了爬取url列表页（反爬虫严重）和复杂的验证码问题，直接构建循环爬取详情页即可。
+
+### 项目使用工具
+
+框架使用的的Scrapy1.3，python版本3.6
